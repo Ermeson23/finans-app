@@ -1,0 +1,51 @@
+<section id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex">
+                <div class="align-self-center">
+                    <h1 class="display-4">Suas contas, descomplicadas</h1>
+                    <p>
+                        Usado por mais de 1 milhão de pessoas, o Finance é uma ferramenta on-line pensado para facilitar sua vida financeira.
+                    </p>
+                    <form class="mt-4 mb-4" [formGroup]="formEmail">
+                        <label class="input-group">
+                            <input
+                            type="email" 
+                            placeholder="Seu e-mail:"
+                            class="form-control"
+                            formControlName="email" 
+                            [class.valid]="formEmail.controls['email'].valid"
+                            [class.invalid]="formEmail.controls['email'].invalid &&
+                            (formEmail.controls['email'].touched || formEmail.controls['email'].dirty)"
+                            >
+                            <label class="input-group-append">
+                                <button type="button" class="btn btn-primary" (click)="(formEmail.controls['email'].valid) ? showMessage() : null">Cadastre-se</button>
+                            </label>
+                        </label>
+                        <div
+                            *ngIf="formEmail.controls['email'].invalid &&
+                            (formEmail.controls['email'].touched || formEmail.controls['email'].dirty)">
+                                <small class="error-message" *ngIf="formEmail.controls['email'].hasError('email')">
+                                    Este campo precisa ser um e-mail válido.
+                                </small>
+                                <small class="error-message" *ngIf="formEmail.controls['email'].hasError('required')">
+                                    Este campo precisa ser preenchido.
+                                </small>
+                            </div>
+                    </form>
+                    <p>Disponível para:
+                        <a href="" class="btn btn-outline-light mr-2">
+                            <i class="fa-brands fa-android fa-lg"></i>
+                        </a>
+                        <a href="" class="btn btn-outline-light">
+                            <i class="fa-brands fa-apple fa-lg"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 d-none d-md-block">
+                <img src="./assets/capa-mulher.png" alt="Representante feminina do Finance">
+            </div>
+        </div>
+    </div>
+</section>
